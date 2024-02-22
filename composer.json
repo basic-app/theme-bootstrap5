@@ -1,0 +1,9 @@
+{
+    "name": "theme/bootstrap5",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BasicApp\\Themes\\Bootstrap5\\": "src"
+        }
+    }
+}
