@@ -1,5 +1,5 @@
 {
-    "name": "theme/bootstrap5",
+    "name": "basic-app/theme-bootstrap5",
     "license": "MIT",
     "autoload": {
         "psr-4": {
