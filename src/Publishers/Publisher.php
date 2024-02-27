@@ -10,11 +10,17 @@ use BasicApp\Core\Publisher as BasePublisher;
 class Publisher extends BasePublisher
 {
 
-    protected $destination = FCPATH . 'assets' . DIRECTORY_SEPARATOR . 'bootstrap5';
+    const VERSION = '5.3.2';
+
+    protected $source = VENDORPATH . 'basic-app/theme-bootstrap5/assets';
+
+    protected $destination = FCPATH . 'themes' . DIRECTORY_SEPARATOR . 'bootstrap5';
 
     public $createDestination = true;
 
-    public $url = 'https://github.com/twbs/bootstrap/releases/download/v5.2.3/bootstrap-5.2.3-dist.zip';
+    public $url = 'https://github.com/twbs/bootstrap/releases/download/v' 
+        . self::VERSION .'/bootstrap-' 
+        . self::VERSION . '-dist.zip';
 
     public function publish(): bool
     {
@@ -23,9 +29,11 @@ class Publisher extends BasePublisher
             return true;
         }
         
+        $this->addPath('/')->merge(false);
+
         return $this->downloadFile($this->url)
-            ->extractZipArchive($this->getScratch() . 'bootstrap-5.2.3-dist.zip')
-            ->setSource($this->getScratch() . 'bootstrap-5.2.3-dist')
+            ->extractZipArchive($this->getScratch() . 'bootstrap-' . self::VERSION . '-dist.zip')
+            ->setSource($this->getScratch() . 'bootstrap-' . self::VERSION . '-dist')
             ->addPath('/')
             ->merge(false);
     }
