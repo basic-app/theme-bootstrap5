@@ -7,6 +7,7 @@
         }
     },
     "require": {
+        "basic-app/asset-bootstrap53": "*",
         "basic-app/theme": "*"
     }
 }
